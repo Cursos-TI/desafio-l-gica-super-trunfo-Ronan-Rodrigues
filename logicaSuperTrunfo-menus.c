@@ -115,7 +115,8 @@ void exibirResultado(int vencedor, Carta c1, Carta c2, int a1, int a2, int a3) {
 int determinarVencedorPorAtributos(Carta c1, Carta c2, int atributos[], int totalAtributos) {
     int pontos1 = 0;
     int pontos2 = 0;
-
+    
+    printf("\n=== Comparação Detalhada dos Atributos ===\n");
     for (int i = 0; i < totalAtributos; i++) {
         int atributo = atributos[i];
         float valor1 = obterValorPorAtributo(c1, atributo);
@@ -277,7 +278,8 @@ int main() {
 
     Carta cartas[MAX_CARTAS];
     inicializarBanco(cartas);
-
+    
+    //Menu principal
     int opcao;
     do {
         printf("\n=== Menu Principal ===\n");
@@ -287,6 +289,7 @@ int main() {
         printf("Escolha uma opção: ");
         scanf("%d", &opcao);
 
+            // Verifica a opção escolhida
         switch (opcao) {
             case 1: {
                 char sigla[3];
@@ -361,15 +364,16 @@ int main() {
                 exibirResultado(vencedor, cartas[i1], cartas[i2], atributo1, atributo2, atributo3);
                 break;
             }
-
+            //Opção para sair do programa
             case 0:
                 printf("\n👋 Encerrando o programa. Até mais!\n");
                 break;
-
+             //Opção inválida
             default:
                 printf("\n❌ Opção inválida. Tente novamente.\n");
         }
-
+        // Verifica se o usuário deseja continuar
+        printf("\nDeseja continuar? (1 - Sim, 0 - Não): ");
     } while (opcao != 0);
 
     return 0;
