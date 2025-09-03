@@ -31,7 +31,7 @@ void exibirCarta(Carta c) {
     printf("\n📍 Cidade: %s (%s)\n", c.nomeCidade, c.estado);
     printf("Código: %s\n", c.codigo);
 }
-
+//Função para obter o valor de um atributo
 float obterValorPorAtributo(Carta c, int atributo) {
     switch (atributo) {
         case 1: return c.populacao;
@@ -43,7 +43,7 @@ float obterValorPorAtributo(Carta c, int atributo) {
         default: return -1;
     }
 }
-
+//Função para obter o nome do atributo
 const char* nomeAtributo(int a) {
     switch (a) {
         case 1: return "População";
@@ -82,26 +82,26 @@ int compararAtributo(float valor1, float valor2, int atributo) {
 //Função para exibir o resultado
 void exibirResultado(int vencedor, Carta c1, Carta c2, int a1, int a2, int a3) {
     printf("\n=== Resultado da Comparação ===\n");
-
+  
     float v1a1 = obterValorPorAtributo(c1, a1);
     float v2a1 = obterValorPorAtributo(c2, a1);
     float v1a2 = obterValorPorAtributo(c1, a2);
     float v2a2 = obterValorPorAtributo(c2, a2);
     float v1a3 = obterValorPorAtributo(c1, a3);
     float v2a3 = obterValorPorAtributo(c2, a3);
-
+    //Exibe os resultados dos atributos
     printf("\n🔹 %s:\n", nomeAtributo(a1));
     printf("  %s: %.2f\n", c1.nomeCidade, v1a1);
     printf("  %s: %.2f\n", c2.nomeCidade, v2a1);
-
+    //Exibe os resultados dos atributos
     printf("\n🔹 %s:\n", nomeAtributo(a2));
     printf("  %s: %.2f\n", c1.nomeCidade, v1a2);
     printf("  %s: %.2f\n", c2.nomeCidade, v2a2);
-
+    //Exibe os resultados dos atributos
     printf("\n🔹 %s:\n", nomeAtributo(a3));
     printf("  %s: %.2f\n", c1.nomeCidade, v1a3);
     printf("  %s: %.2f\n", c2.nomeCidade, v2a3);
-
+    //Exibe o resultado final
     printf("\n🏆 Resultado Final:\n");
     if (vencedor == 1)
         printf("  Carta 1 (%s) venceu!\n\n", c1.nomeCidade);
@@ -115,7 +115,6 @@ void exibirResultado(int vencedor, Carta c1, Carta c2, int a1, int a2, int a3) {
 int determinarVencedorPorAtributos(Carta c1, Carta c2, int atributos[], int totalAtributos) {
     int pontos1 = 0;
     int pontos2 = 0;
-    
     printf("\n=== Comparação Detalhada dos Atributos ===\n");
     for (int i = 0; i < totalAtributos; i++) {
         int atributo = atributos[i];
@@ -243,7 +242,7 @@ void inicializarBanco(Carta cartas[]) {
     {"TO", "TO003", "Gurupi", 87000, 1835, 33, 20}
 
     };
-
+    
     int total = sizeof(base) / sizeof(base[0]);
     for (int i = 0; i < total; i++) {
         cartas[i] = base[i];
@@ -278,7 +277,7 @@ int main() {
 
     Carta cartas[MAX_CARTAS];
     inicializarBanco(cartas);
-    
+
     //Menu principal
     int opcao;
     do {
@@ -289,7 +288,7 @@ int main() {
         printf("Escolha uma opção: ");
         scanf("%d", &opcao);
 
-            // Verifica a opção escolhida
+        // Verifica a opção escolhida
         switch (opcao) {
             case 1: {
                 char sigla[3];
@@ -368,7 +367,7 @@ int main() {
             case 0:
                 printf("\n👋 Encerrando o programa. Até mais!\n");
                 break;
-             //Opção inválida
+            //Opção inválida
             default:
                 printf("\n❌ Opção inválida. Tente novamente.\n");
         }

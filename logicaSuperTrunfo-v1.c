@@ -214,9 +214,8 @@ void inicializarBanco(Carta cartas[]) {
 
 
 
-
 int main() {
-    system("chcp 65001");
+    system("chcp 65001 > null");
 
     Carta cartas[MAX_CARTAS];
     inicializarBanco(cartas);
